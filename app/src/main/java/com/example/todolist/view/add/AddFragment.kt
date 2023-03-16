@@ -5,15 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.todolist.BaseFragment
 import com.example.todolist.R
+import com.example.todolist.databinding.FragmentAddBinding
 
-class AddFragment : Fragment() {
+class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
+    override fun init() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_add, container, false)
     }
 
 }

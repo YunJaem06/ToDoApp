@@ -35,6 +35,9 @@ abstract class BaseFragment<T: ViewDataBinding>(@LayoutRes private val layoutId:
         init()
     }
 
+    fun showCustomToast(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
     // 앱을 전체 화면
     fun Activity.setStatusBarTransparent() {
         window.apply {
@@ -46,10 +49,6 @@ abstract class BaseFragment<T: ViewDataBinding>(@LayoutRes private val layoutId:
         if(Build.VERSION.SDK_INT >= 30) {
             WindowCompat.setDecorFitsSystemWindows(window, false)
         }
-    }
-
-    fun showCustomToast(message: String) {
-        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
     // 상태창 높이 계산
@@ -83,6 +82,4 @@ abstract class BaseFragment<T: ViewDataBinding>(@LayoutRes private val layoutId:
         super.onDestroyView()
         _binding = null
     }
-
-
 }
