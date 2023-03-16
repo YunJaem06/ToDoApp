@@ -8,31 +8,57 @@
         android:padding="24dp"
         tools:context=".view.add.AddFragment">
 
-        <EditText
-            android:id="@+id/etv_add_name"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <ImageView
+            android:id="@+id/iv_add_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_backward_arrow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/edt_add_name"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:hint="@string/add_title"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_add_back" />
+
         <Spinner
-            android:id="@+id/sn_add_"
+            android:id="@+id/sn_add_rank"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:entries="@array/Rank"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etv_add_name" />
+            app:layout_constraintTop_toBottomOf="@id/edt_add_name" />
 
         <EditText
+            android:id="@+id/edt_add_content"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:gravity="top|start"
+            android:ems="10"
+            android:hint="@string/add_content"
             android:inputType="textMultiLine"
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sn_add_" />
+            app:layout_constraintTop_toBottomOf="@id/sn_add_rank" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
