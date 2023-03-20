@@ -4,6 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_title">제목</string>
     <string name="add_content">내용을 입력하세요.</string>
+    <string name="menu_find">찾기</string>
+    <string name="menu_high">높은 순서</string>
+    <string name="menu_low">낮은 순서</string>
+    <string name="menu_delete_all">전체 삭제</string>
 
     <string-array name="Rank">
         <item>급함</item>
