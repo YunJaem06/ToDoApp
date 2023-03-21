@@ -12,7 +12,11 @@ import com.example.todolist.databinding.FragmentAddBinding
 class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
     override fun init() {
 
-        binding.toolbarAdd.addMenuProvider(object : MenuProvider{
+        binding.ivAddBack.setOnClickListener {
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
+        }
+
+        binding.toolbarAdd.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.add_menu, menu)
             }
@@ -22,10 +26,6 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
             }
 
         })
-
-        binding.ivAddBack.setOnClickListener {
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
-        }
 
     }
 

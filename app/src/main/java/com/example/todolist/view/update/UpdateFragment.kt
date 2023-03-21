@@ -1,10 +1,9 @@
 package com.example.todolist.view.update
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.core.view.MenuProvider
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.BaseFragment
 import com.example.todolist.R
@@ -16,6 +15,17 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_upd
         binding.ivUpdateBack.setOnClickListener {
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }
+
+        binding.toolbarUpdate.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.update_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return true
+            }
+
+        })
 
     }
 }
