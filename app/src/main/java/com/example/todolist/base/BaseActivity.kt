@@ -1,4 +1,4 @@
-package com.example.todolist
+package com.example.todolist.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

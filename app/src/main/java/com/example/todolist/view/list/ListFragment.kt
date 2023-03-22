@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.navigation.fragment.findNavController
-import com.example.todolist.BaseFragment
+import com.example.todolist.base.BaseFragment
 import com.example.todolist.R
 import com.example.todolist.databinding.FragmentListBinding
 

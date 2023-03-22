@@ -1,11 +1,9 @@
 package com.example.todolist.view.add
 
-import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
 import androidx.navigation.fragment.findNavController
-import com.example.todolist.BaseFragment
+import com.example.todolist.base.BaseFragment
 import com.example.todolist.R
 import com.example.todolist.databinding.FragmentAddBinding
 
