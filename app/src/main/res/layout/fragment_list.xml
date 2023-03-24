@@ -61,6 +61,7 @@
             android:layout_marginTop="12dp"
             android:alpha="0.5"
             android:text="할일을 추가 해주세요"
+            android:fontFamily="@font/dovemayo_gothic"
             android:textSize="14sp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/iv_list_empty"
