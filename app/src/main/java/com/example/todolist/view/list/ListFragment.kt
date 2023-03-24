@@ -6,10 +6,19 @@ import androidx.core.view.MenuProvider
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.base.BaseFragment
 import com.example.todolist.R
+import com.example.todolist.data.database.ToDoDatabase
+import com.example.todolist.data.repository.ToDoRepository
 import com.example.todolist.databinding.FragmentListBinding
+import com.example.todolist.viewmodel.ToDoViewModel
 
 class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
+
+//    private lateinit var toDoViewModel: ToDoViewModel
     override fun init() {
+
+//        val dao = ToDoDatabase.getInstance(requireActivity().applicationContext).toDoDao
+//        val repository = ToDoRepository(dao)
+
 
         binding.floatBtnList.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
