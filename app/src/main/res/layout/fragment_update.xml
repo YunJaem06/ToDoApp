@@ -47,9 +47,10 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_input"
             android:entries="@array/Rank"
+            android:fontFamily="@font/dovemayo_gothic"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:fontFamily="@font/dovemayo_gothic"
+            android:theme="@style/SpinnerTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_update_name" />

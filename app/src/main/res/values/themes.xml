@@ -20,6 +20,8 @@
         <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
         <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
 
-
+    </style>
+    <style name="SpinnerTheme">
+        <item name="android:fontFamily">@font/dovemayo_gothic</item>
     </style>
 </resources>
