@@ -1,12 +1,14 @@
-package com.example.todolist.data
+package com.example.todolist.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.todolist.data.model.ToDoData
 
 @Database(entities = [ToDoData::class], version = 1)
+@TypeConverters(Converter::class)
 abstract class ToDoDatabase : RoomDatabase() {
 
 //    abstract fun toDoDao() : ToDoDao
