@@ -18,7 +18,7 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
     override fun init() {
 
         binding.ivAddBack.setOnClickListener {
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
+            findNavController().popBackStack()
         }
 
         binding.toolbarAdd.addMenuProvider(object : MenuProvider {

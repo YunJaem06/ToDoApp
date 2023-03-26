@@ -11,7 +11,7 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_upd
     override fun init() {
 
         binding.ivUpdateBack.setOnClickListener {
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().popBackStack()
         }
 
         binding.toolbarUpdate.addMenuProvider(object : MenuProvider {
