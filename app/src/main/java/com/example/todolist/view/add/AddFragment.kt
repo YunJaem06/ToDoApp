@@ -11,12 +11,15 @@ import com.example.todolist.data.model.Priority
 import com.example.todolist.data.model.ToDoData
 import com.example.todolist.databinding.FragmentAddBinding
 import com.example.todolist.viewmodel.SharedViewModel
+import com.example.todolist.viewmodel.SharedViewModelFactory
 import com.example.todolist.viewmodel.ToDoViewModel
 
 class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
 
     private val aToDoViewModel: ToDoViewModel by viewModels()
-    private val aSharedViewModel : SharedViewModel by viewModels()
+    private val aSharedViewModel : SharedViewModel by viewModels {
+        SharedViewModelFactory(requireContext().applicationContext)
+    }
     override fun init() {
 
         // 뒤로 돌아가기
@@ -24,6 +27,7 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
             findNavController().popBackStack()
         }
 
+        // 저장 툴바
         binding.toolbarAdd.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.add_menu, menu)
@@ -37,6 +41,8 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
             }
 
         })
+
+        binding.snAddRank.onItemSelectedListener = aSharedViewModel.listener
 
     }
     private fun insertData(){
