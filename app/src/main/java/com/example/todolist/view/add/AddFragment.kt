@@ -10,13 +10,16 @@ import com.example.todolist.R
 import com.example.todolist.data.model.Priority
 import com.example.todolist.data.model.ToDoData
 import com.example.todolist.databinding.FragmentAddBinding
+import com.example.todolist.viewmodel.SharedViewModel
 import com.example.todolist.viewmodel.ToDoViewModel
 
 class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
 
     private val aToDoViewModel: ToDoViewModel by viewModels()
+    private val aSharedViewModel : SharedViewModel by viewModels()
     override fun init() {
 
+        // 뒤로 돌아가기
         binding.ivAddBack.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -42,13 +45,13 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
             val aPriority = snAddRank.selectedItem.toString()
             val aContent = edtAddContent.text.toString()
 
-            val checkData = emptyData(aTitle, aContent)
+            val checkData = aSharedViewModel.emptyData(aTitle, aContent)
 
             if (checkData){
                 val newData = ToDoData(
                     0,
                     aTitle,
-                    checkPriority(aPriority),
+                    aSharedViewModel.checkPriority(aPriority),
                     aContent
                 )
                 aToDoViewModel.insertData(newData)
@@ -57,22 +60,6 @@ class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
             } else {
                 showCustomToast("실패")
             }
-        }
-    }
-
-    // 유효성 검사
-    private fun emptyData(title: String, content : String) : Boolean {
-        return if (TextUtils.isEmpty(title) || TextUtils.isEmpty(content)){
-            false
-        } else !(title.isEmpty() || content.isEmpty())
-    }
-
-    private fun checkPriority(priority: String) : Priority {
-        return when(priority){
-            "높음" -> {Priority.HIGH}
-            "중간" -> {Priority.MEDIUM}
-            "낮음" -> {Priority.LOW}
-            else -> Priority.LOW
         }
     }
 

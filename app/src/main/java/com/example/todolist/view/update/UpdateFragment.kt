@@ -10,6 +10,7 @@ import com.example.todolist.databinding.FragmentUpdateBinding
 class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_update) {
     override fun init() {
 
+        // 뒤로 돌아가기
         binding.ivUpdateBack.setOnClickListener {
             findNavController().popBackStack()
         }
