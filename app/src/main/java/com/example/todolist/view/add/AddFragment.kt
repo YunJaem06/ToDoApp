@@ -4,23 +4,34 @@ import android.text.TextUtils
 import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.base.BaseFragment
 import com.example.todolist.R
+import com.example.todolist.data.database.ToDoDatabase
 import com.example.todolist.data.model.Priority
 import com.example.todolist.data.model.ToDoData
+import com.example.todolist.data.repository.ToDoRepository
 import com.example.todolist.databinding.FragmentAddBinding
 import com.example.todolist.viewmodel.SharedViewModel
 import com.example.todolist.viewmodel.SharedViewModelFactory
 import com.example.todolist.viewmodel.ToDoViewModel
+import com.example.todolist.viewmodel.ToDoViewModelFactory
 
 class AddFragment : BaseFragment<FragmentAddBinding>(R.layout.fragment_add) {
 
-    private val aToDoViewModel: ToDoViewModel by viewModels()
     private val aSharedViewModel : SharedViewModel by viewModels {
         SharedViewModelFactory(requireContext().applicationContext)
     }
+    private lateinit var aToDoViewModel : ToDoViewModel
     override fun init() {
+
+        val dao = ToDoDatabase.getInstance(requireActivity().applicationContext).toDoDao
+        val repository = ToDoRepository(dao)
+        val factory = ToDoViewModelFactory(repository)
+
+        aToDoViewModel = ViewModelProvider(requireActivity(), factory)[ToDoViewModel::class.java]
+
 
         // 뒤로 돌아가기
         binding.ivAddBack.setOnClickListener {
