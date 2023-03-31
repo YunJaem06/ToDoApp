@@ -33,10 +33,6 @@ class ListFragment : BaseFragment<FragmentListBinding>(R.layout.fragment_list) {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
-        binding.listLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_updateFragment)
-        }
-
         binding.toolbarList.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.list_menu, menu)

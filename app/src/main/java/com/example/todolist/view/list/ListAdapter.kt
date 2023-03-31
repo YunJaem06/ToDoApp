@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
@@ -16,6 +18,14 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
     var dataList = emptyList<ToDoData>()
 
     inner class ListViewHolder(val binding : ItemListBinding, val context : Context) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val navController = Navigation.findNavController(binding.root)
+                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(dataList[position])
+                navController.navigate(action)
+            }
+        }
 
         fun bind(item : ToDoData){
             binding.itemTvTitle.text = item.title
