@@ -18,4 +18,10 @@ class ToDoViewModel(private val repository: ToDoRepository) : ViewModel() {
         }
     }
 
+    fun updateData(toDoData: ToDoData){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateData(toDoData)
+        }
+    }
+
 }
