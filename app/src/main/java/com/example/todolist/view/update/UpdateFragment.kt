@@ -1,5 +1,6 @@
 package com.example.todolist.view.update
 
+import android.app.AlertDialog
 import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
@@ -47,8 +48,9 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_upd
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                if (menuItem.itemId == R.id.menu_update){
-                    updateItem()
+                when (menuItem.itemId){
+                    R.id.menu_update -> updateItem()
+                    R.id.menu_delete -> deleteItem()
                 }
                 return true
             }
@@ -80,5 +82,17 @@ class UpdateFragment : BaseFragment<FragmentUpdateBinding>(R.layout.fragment_upd
         } else {
             showCustomToast("다시 수정해주세요")
         }
+    }
+
+    private fun deleteItem() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("네") {_, _ ->
+            uToDoViewModel.deleteData(args.currentItem)
+            showCustomToast("삭제했습니다")
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("아니요"){_, _ -> }
+        builder.setTitle("'${args.currentItem.title}'을 삭제 하겠습니까?")
+        builder.show()
     }
 }
